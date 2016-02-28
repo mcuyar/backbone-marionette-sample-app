@@ -1,4 +1,85 @@
-@import 'normalize'
+/**
+ * Variables
+ */
 
-#js-app
-  font-size 20px
+blue = #2196f3
+orange = #ffab40
+light-grey = #eee
+dark-grey = #e0e0e0
+
+html,
+body
+  height: 100%;
+
+/**
+ * Defaults CSS
+ */
+html,
+body,
+input,
+textarea,
+button
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+
+/**
+ * Header CSS
+ */
+header
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+
+
+header ul.mui-list--inline
+  margin-bottom: 0;
+
+header a
+  color: white;
+
+header a:hover
+  color: white;
+
+/**
+ * Content CSS
+ */
+#content-wrapper
+  min-height: 100%;
+  margin-bottom: -80px;
+  padding-bottom: 80px;
+  background-color: light-grey;
+
+
+/**
+ * Footer CSS
+ */
+footer
+  height: 80px;
+  background-color: white;
+  border-top: 1px solid dark-grey;
+  padding-top: 15px;
+
+/**
+ * Typography
+ */
+.color-text-blue
+  color: blue
+
+.img-circle
+  border-radius: 50%;
+
+
+.text-capitalize
+  text-transform: capitalize;
+.text-uppercase
+  text-transform: uppercase;
+
+.mui-panel
+  position: relative;
+  z-index 1;
+
+@import "front-page.styl"
+@import "manager.styl"

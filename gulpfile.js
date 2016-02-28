@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var path = require('path');
 var del = require('del');
 var $ = require('gulp-load-plugins')({
-  pattern: '*',
+  pattern: '*'
 });
 
 var environment = $.util.env.type || 'development';
@@ -80,8 +80,6 @@ gulp.task('watch', function() {
 gulp.task('clean', function(cb) {
   del([dist], cb);
 });
-
-
 
 // by default build project and then watch files in order to trigger livereload
 gulp.task('default', ['build', 'serve', 'watch']);

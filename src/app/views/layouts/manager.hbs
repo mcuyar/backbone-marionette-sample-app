@@ -1,0 +1,140 @@
+<div id="user-manager" class="mui--overflow-hidden">
+
+    <div id="manager-bar" class="mui-container">
+        <div class="mui-panel">
+            <table width="100%">
+                <tr>
+                    <td class="mui--text-title">User Manager</td>
+                    <td align="right">
+                        <ul class="mui-list--inline mui--text-body2">
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Pricing</a></li>
+                            <li><a href="#">Login</a></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!--"user": {-->
+    <!--"gender": "female",-->
+    <!--"name": {-->
+    <!--"title": "miss",-->
+    <!--"first": "jenny",-->
+    <!--"last": "berg"-->
+    <!--},-->
+    <!--"location": {-->
+    <!--"street": "1540 wiesenweg",-->
+    <!--"city": "jerichower land",-->
+    <!--"state": "baden-württemberg",-->
+    <!--"zip": 15053-->
+    <!--},-->
+    <!--"email": "jenny.berg@example.com",-->
+    <!--"username": "yellowtiger907",-->
+    <!--"password": "bennett",-->
+    <!--"salt": "z4l2XTQR",-->
+    <!--"md5": "b50c0b180fd584cc13c88852df750cf7",-->
+    <!--"sha1": "677b80a51c7aa5b43b12738fce27d056397b1608",-->
+    <!--"sha256": "a49101d39eb7037a8f0635fd0ed9332696eec1ca4127f45e7301551999496ea4",-->
+    <!--"registered": 1273401966,-->
+    <!--"dob": 581805246,-->
+    <!--"phone": "0093-0646122",-->
+    <!--"cell": "0175-1052471",-->
+    <!--"picture": {-->
+    <!--"large": "https://randomuser.me/api/portraits/women/58.jpg",-->
+    <!--"medium": "https://randomuser.me/api/portraits/med/women/58.jpg",-->
+    <!--"thumbnail": "https://randomuser.me/api/portraits/thumb/women/58.jpg"-->
+    <!--}-->
+    <!--}-->
+
+    <div id="users" class="mui-container">
+        <div class="mui-row">
+            <div class="column mui-col-md-3">
+                <div class="mui-panel">
+                    <div class="mui-row">
+                        <div class="mui-col-sm-3">
+                            <img class="img-circle" src="https://randomuser.me/api/portraits/thumb/men/2.jpg"/>
+                        </div>
+                        <div class="mui-col-sm-9 mui--align-bottom mui--text-left text-capitalize">
+                            <span class="mui--text-title">Jenny Berg</span>
+                            <div class="mui-divider"></div>
+                            <span class="mui--text-dark-secondary color-text-blue">jenny.berg@example.com</span>
+                            <span class="mui--text-dark-secondary">jerichower land, <span class="text-uppercase">SC</span></span>
+                        </div>
+                    </div>
+
+                    <div class="duplicate-icon">
+                        <a href="#" onclick="activateModal()">
+                           D
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="column mui-col-md-3">
+                <div class="mui-panel">
+                    <div class="mui-row">
+                        <div class="mui-col-sm-3">
+                            <img class="img-circle" src="https://randomuser.me/api/portraits/thumb/men/2.jpg"/>
+                        </div>
+                        <div class="mui-col-sm-9 mui--align-bottom mui--text-left">
+                            <span class="mui--text-title">Persons Name</span>
+                            <div class="mui-divider"></div>
+                            <span class="">Hello There</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column mui-col-md-3">
+                <div class="mui-panel">
+                    <div class="mui-row">
+                        <div class="mui-col-sm-3">
+                            <img class="img-circle" src="https://randomuser.me/api/portraits/thumb/men/2.jpg"/>
+                        </div>
+                        <div class="mui-col-sm-9 mui--align-bottom mui--text-left">
+                            <span class="mui--text-title">Persons Name</span>
+                            <div class="mui-divider"></div>
+                            <span class="">Hello There</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column mui-col-md-3">
+                <div class="mui-panel">
+                    <div class="mui-row">
+                        <div class="mui-col-sm-3">
+                            <img class="img-circle" src="https://randomuser.me/api/portraits/thumb/men/2.jpg"/>
+                        </div>
+                        <div class="mui-col-sm-9 mui--align-bottom mui--text-left">
+                            <span class="mui--text-title">Persons Name</span>
+                            <div class="mui-divider"></div>
+                            <span class="">Hello There</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="full-modal" class="full-modal" style="display:none">
+    <button class="mui-btn mui-btn--primary" onclick="deactivateModal()">Deactivate modal</button>
+</div>
+<script>
+    var modalEl = document.getElementById('full-modal');
+
+    function activateModal() {
+        modalEl.style.display = 'block';
+        modalEl.style.width = '100%';
+        modalEl.style.height = '100%';
+        modalEl.style.margin = '0';
+        modalEl.style.backgroundColor = '#fff';
+
+        // show modal
+        mui.overlay('on', modalEl);
+    }
+
+    function deactivateModal() {
+        mui.overlay('off', modalEl);
+    }
+</script>
+<button class="mui-btn mui-btn--primary" onclick="activateModal()">Activate modal</button>

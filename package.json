@@ -26,6 +26,7 @@
     "babel-core": "^6.1.2",
     "babel-loader": "^6.0.1",
     "babel-preset-es2015": "^6.1.2",
+    "bower": "^1.7.7",
     "chai": "^2.1.1",
     "del": "^1.1.1",
     "gulp": "^3.8.11",
@@ -39,6 +40,8 @@
     "gulp-uglifyjs": "^0.6.0",
     "gulp-util": "^3.0.3",
     "gulp-watch": "^4.1.1",
+    "handlebars": "^4.0.3",
+    "handlebars-loader": "^1.1.4",
     "karma": "0.13.11",
     "karma-chrome-launcher": "^0.1.7",
     "karma-mocha": "^0.1.10",
@@ -46,13 +49,12 @@
     "karma-webpack": "1.7.0",
     "mocha": "^2.2.1",
     "webpack": "^1.12.3",
-    "handlebars": "^4.0.3",
-    "handlebars-loader": "^1.1.4",
     "webpack-dev-middleware": "^1.0.11",
     "webpack-stream": "^2.1.1"
   },
   "dependencies": {
     "backbone": "^1.1.2",
+    "backbone-indexeddb": "0.0.13",
     "backbone.marionette": "^2.4.1",
     "jquery": "^2.1.3",
     "lodash": "^3.5.0"

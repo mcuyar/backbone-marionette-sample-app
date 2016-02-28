@@ -2,16 +2,14 @@ import $ from 'jquery';
 import _ from 'lodash';
 import Marionette from 'backbone.marionette';
 
-import template from './template.hbs';
+import template from './layouts/manager.hbs';
 
 export default Marionette.ItemView.extend({
 
-  template: template,
+    template: template,
 
-  serializeData() {
-    return {
-      name: 'world'
-    };
-  }
+    serializeData() {
+        return {};
+    }
 
 });
