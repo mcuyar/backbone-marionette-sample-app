@@ -2,9 +2,9 @@ import $ from 'jquery';
 import _ from 'lodash';
 import Marionette from 'backbone.marionette';
 
-import template from './layouts/manager.hbs';
+import template from '../views/index.hbs';
 
-export default Marionette.ItemView.extend({
+export default Marionette.LayoutView.extend({
 
     template: template,
 
