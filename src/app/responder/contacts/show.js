@@ -6,8 +6,9 @@ import Layout from './layouts/index';
 
 export default Marionette.Object.extend({
 
-    initialize: function(App) {
+    initialize: function(App, data) {
         this.app = App;
+        this.data = data;
     },
 
     respond: function() {

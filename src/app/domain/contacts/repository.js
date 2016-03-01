@@ -12,7 +12,23 @@ export default Marionette.Object.extend({
         this.contacts = new Contacts;
     },
 
-    list: function() {
+    all: function() {
+        var results;
+
+        (new Contacts()).fetch({
+            success: function(data) {
+                results = data;
+            }
+        });
+
+        return results;
+    },
+
+    findById(id) {
+
+    },
+
+    findByName() {
 
     }
 

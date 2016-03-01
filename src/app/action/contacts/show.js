@@ -3,20 +3,28 @@ import Backbone from 'backbone';
 import Marionette from 'backbone.marionette';
 
 import Responder from '../../responder/contacts/show';
-import Contacts from '../../domain/contacts/collection';
+import Contacts from '../../domain/contacts/repository';
 
 export default Marionette.Object.extend({
+
     initialize: function(App, region) {
-        var responder = new Responder(App);
 
-        var b = new Contacts();
+        this.region = region;
+        this.app = App;
+        this.contacts = new Contacts;
 
-        b.fetch({
-            success: function(data) {
-                console.log(data);
-            }
-        });
+        return this.respond();
+    },
 
-        return region.show(responder.respond());
+    respond: function() {
+        var responder = new Responder(App, this.data());
+        return this.region.show(responder.respond());
+    },
+
+    data: function() {
+        return {
+            contacts: this.contacts.all()
+        };
     }
+
 });
