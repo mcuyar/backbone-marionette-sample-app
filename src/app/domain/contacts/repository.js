@@ -13,15 +13,16 @@ export default Marionette.Object.extend({
     },
 
     all: function() {
-        var results;
 
-        (new Contacts()).fetch({
-            success: function(data) {
-                results = data;
+        var results = $.Deferred();
+
+        this.contacts.fetch({
+            success: function(contacts) {
+                results.resolve(contacts)
             }
         });
 
-        return results;
+        return results.promise();
     },
 
     findById(id) {

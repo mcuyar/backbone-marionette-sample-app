@@ -12,6 +12,8 @@ export default Marionette.Object.extend({
     },
 
     respond: function() {
-        return new Layout;
+        return new Layout({
+            data: this.data
+        });
     }
 });

@@ -14,6 +14,10 @@ export default Marionette.Object.extend({
         return data;
     },
 
+    remove: function(key) {
+        localStorage.removeItem(key);
+    },
+
     can: function() {
         return typeof(Storage) !== "undefined";
     },

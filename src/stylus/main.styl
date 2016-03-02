@@ -5,7 +5,7 @@
 blue = #2196f3
 orange = #ffab40
 light-grey = #eee
-dark-grey = #e0e0e0
+dark-grey = rgba(0, 0, 0, 0.54)
 
 html,
 body
@@ -80,6 +80,34 @@ footer
 .mui-panel
   position: relative;
   z-index 1;
+
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+icon-box(background-off=black, background-on=light-grey, text-color-off=dark-grey, text-color-on=black)
+    background-color: background-off;
+    width: 26px;
+    height: 26px;
+    color: text-color-off;
+    &:hover
+      background: background-on
+      color: text-color-on
+    a
+      padding: 3px;
+      display:block;
+      color: text-color-off;
+      text-decoration:none;
+      &:hover
+        color: text-color-on
+
+icon-circle(background-off=black, background-on=light-grey, text-color-off=dark-grey, text-color-on=black)
+  icon-box(background-off, background-on, text-color-off, text-color-on)
+  border-radius: 50%;
+
+.icon-inline
+  display: inline-block;
 
 @import "front-page.styl"
 @import "manager.styl"

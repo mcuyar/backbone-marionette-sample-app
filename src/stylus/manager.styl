@@ -11,20 +11,18 @@
   /**
    * Panel
    */
-  .duplicate-icon
-    background-color: orange;
+
+  .delete-icon
+    icon-box(white, red, dark-grey, white)
     position: absolute
-    width: 20px;
-    height: 20px;
     padding: 0;
     top: -0px;
     right: -0px;
     z-index: -1;
-    a
-      display:block;
-      color: white;
-      font-weight: bold;
-      text-decoration:none;
-      &:hover
-        background: light-grey
-        color: orange
+
+  .edit-icon,
+  .view-icon
+    icon-circle(light-grey, blue, dark-grey, white)
+
+  .user-actions
+    margin-top: 10px;

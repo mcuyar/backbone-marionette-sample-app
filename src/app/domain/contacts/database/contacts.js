@@ -19,14 +19,14 @@ export default Marionette.Object.extend({
     },
 
     all: function() {
-        if(this.cache.can()) {
 
+        if(this.cache.can()) {
             if(this.cache.has('contactsDB')) {
-                return this.cache.get('contactsDB');
+                return JSON.parse(this.cache.get('contactsDB'));
             }
 
             var contacts = this.get();
-            this.cache.set('contactsDB', contacts);
+            this.cache.set('contactsDB', JSON.stringify(contacts));
             return contacts;
         }
 
@@ -38,7 +38,7 @@ export default Marionette.Object.extend({
         var contacts = [];
 
         $.ajax({
-            url: 'http://api.randomuser.me/?results=10&nat=us',
+            url: 'http://api.randomuser.me/?results=50&nat=us',
             dataType: 'json',
             async: false,
             success: function(response) {
@@ -59,4 +59,5 @@ export default Marionette.Object.extend({
 
         });
     }
+
 });
