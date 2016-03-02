@@ -13,7 +13,8 @@ export default Marionette.Object.extend({
         _.forEach(routes,
             function(value, key) {
                 controller[value] = function() {
-                    return new actions[value](App, region);
+                    var action = new actions[value](App, region);
+                    return action.respond.apply(action, arguments)
                 };
             }
         );

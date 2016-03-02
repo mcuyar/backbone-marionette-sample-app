@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import _ from 'lodash';
 import Marionette from 'backbone.marionette';
 
 export default Marionette.Object.extend({
@@ -11,7 +12,8 @@ export default Marionette.Object.extend({
         return this.data;
     },
 
-    where: function(query) {
-
+    where: function(search) {
+        var key = _.findKey(this.data, search || {});
+        return this.data[key];
     }
 });
