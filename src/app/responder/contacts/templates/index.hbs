@@ -20,26 +20,5 @@
     <div class="mui-container">
         <div id="users" class="mui-row"></div>
     </div>
+
 </div>
-<div id="full-modal" class="full-modal" style="display:none">
-    <button class="mui-btn mui-btn--primary" onclick="deactivateModal()">Deactivate modal</button>
-</div>
-<script>
-    var modalEl = document.getElementById('full-modal');
-
-    function activateModal() {
-        modalEl.style.display = 'block';
-        modalEl.style.width = '100%';
-        modalEl.style.height = '100%';
-        modalEl.style.margin = '0';
-        modalEl.style.backgroundColor = '#fff';
-
-        // show modal
-        mui.overlay('on', modalEl);
-    }
-
-    function deactivateModal() {
-        mui.overlay('off', modalEl);
-    }
-</script>
-<button class="mui-btn mui-btn--primary" onclick="activateModal()">Activate modal</button>

@@ -94,11 +94,12 @@ icon-box(background-off=black, background-on=light-grey, text-color-off=dark-gre
     &:hover
       background: background-on
       color: text-color-on
-    a
+    a,i
       padding: 3px;
       display:block;
       color: text-color-off;
       text-decoration:none;
+      cursor:pointer
       &:hover
         color: text-color-on
 
@@ -108,6 +109,15 @@ icon-circle(background-off=black, background-on=light-grey, text-color-off=dark-
 
 .icon-inline
   display: inline-block;
+
+
+#modal
+  display: 'block';
+  background-color: white;
+  &.full-modal
+    width: 100%;
+    height: 100%;
+    margin: 0;
 
 @import "front-page.styl"
 @import "manager.styl"

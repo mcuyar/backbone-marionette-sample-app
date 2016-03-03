@@ -8,5 +8,9 @@ export default Marionette.Object.extend({
     initialize: function(App, region) {
         var responder = new Responder(App);
         return region.show(responder.respond());
+    },
+
+    respond: function() {
+
     }
 });

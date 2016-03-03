@@ -2,7 +2,7 @@ import $ from 'jquery';
 import Backbone from 'backbone';
 import Marionette from 'backbone.marionette';
 
-import UserView from './views/user';
+import Layout from './layouts/index';
 
 export default Marionette.Object.extend({
 
@@ -12,8 +12,8 @@ export default Marionette.Object.extend({
     },
 
     respond: function() {
-        return new UserView({
-            model: this.data
+        return new Layout({
+            data: this.data
         });
     }
 });

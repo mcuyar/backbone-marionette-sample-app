@@ -26,11 +26,16 @@ export default Marionette.Object.extend({
     },
 
     findById(id) {
+        var results = $.Deferred();
 
-    },
+        this.contact.fetch({
+            id: id,
+            success: function(contact) {
+                results.resolve(contact)
+            }
+        });
 
-    findByName() {
-
+        return results.promise();
     }
 
 });

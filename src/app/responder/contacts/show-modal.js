@@ -1,8 +1,7 @@
 import $ from 'jquery';
-import Backbone from 'backbone';
 import Marionette from 'backbone.marionette';
 
-import UserView from './views/user';
+import template from './templates/user.hbs';
 
 export default Marionette.Object.extend({
 
@@ -12,8 +11,9 @@ export default Marionette.Object.extend({
     },
 
     respond: function() {
-        return new UserView({
-            model: this.data
+        return this.data.contact.then(function(data) {
+            return Backbone.Marionette.Renderer.render(template, data.toJSON());
         });
     }
+
 });

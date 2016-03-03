@@ -1,0 +1,31 @@
+<div class="column mui-col-md-4">
+    <div class="mui-panel">
+        <div class="mui-row">
+            <div class="mui-col-sm-3">
+                <img class="img-circle" src="{{ picture.thumbnail }}"/>
+                <div class="user-actions">
+                    <div class="icon-inline view-icon">
+                        <i class="material-icons md-18 modal-open" data-id="{{ id }}">visibility</i>
+                    </div>
+                    <div class="icon-inline edit-icon">
+                        <a href="#" onclick="">
+                            <i class="material-icons md-18">create</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mui-col-sm-9 mui--align-bottom mui--text-left text-capitalize">
+                <span class="mui--text-title">{{ name.first }} {{ name.last }}</span>
+                <div class="mui-divider"></div>
+                <span class="mui--text-dark-secondary color-text-blue">{{ email }}</span><br>
+                <span class="mui--text-dark-secondary">{{ location.city }}, <span class="">{{ location.state }}</span></span>
+            </div>
+        </div>
+
+        <div class="delete-icon">
+            <a href="#">
+                <i class="material-icons md-18">clear</i>
+            </a>
+        </div>
+    </div>
+</div>
