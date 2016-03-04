@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import _ from 'lodash';
 import Marionette from 'backbone.marionette';
 
 export default Marionette.Behavior.extend({
@@ -33,13 +34,14 @@ export default Marionette.Behavior.extend({
 
     getHtml: function(data, callback) {
 
-        var action = new this.options.action;
+        var action = new this.options.action,
+            responder = action.respond.apply(action, _.values(data));
 
-        action.respond(data).done(function(html) {
-
-            html = '' +
-                '<div id="modal" class="mui--overflow-hidden mui-container">' + html +
-                    '<div class="close-icon close-modal"> ' +
+        $.when(responder).then(function(response) {
+            var responseHtml = response.render().$el.html(),
+                html = '' +
+                '<div id="modal" class="mui--overflow-hidden mui-container">' + responseHtml +
+                    '<div class="close-icon close-modal">' +
                         '<i class="material-icons md-24">clear</i>' +
                     '</div>' +
                 '</div>';

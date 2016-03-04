@@ -7,15 +7,14 @@ import Contacts from '../../domain/contacts/repository';
 
 export default Marionette.Object.extend({
 
-    initialize: function(App, region) {
-        this.region = region;
+    initialize: function(App) {
         this.app = App;
         this.contacts = new Contacts;
     },
 
     respond: function() {
         var responder = new Responder(App, this.data());
-        this.region.show(responder.respond());
+        return responder.respond();
     },
 
     data: function() {
