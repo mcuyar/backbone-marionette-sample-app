@@ -8,8 +8,6 @@ import Contacts from '../../domain/contacts/repository';
 export default Marionette.Object.extend({
 
     initialize: function(App, region) {
-        this.region = region;
-        this.app = App;
         this.contacts = new Contacts;
     },
 

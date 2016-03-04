@@ -4,7 +4,7 @@ import Marionette from 'backbone.marionette';
 export default Marionette.Behavior.extend({
 
     defaults: {
-        class: 'full-modal',
+        class: '',
         action: null
     },
 
@@ -37,7 +37,12 @@ export default Marionette.Behavior.extend({
 
         action.respond(data).done(function(html) {
 
-            html = '<div id="modal">'+ html +'</div>';
+            html = '' +
+                '<div id="modal" class="mui--overflow-hidden mui-container">' + html +
+                    '<div class="close-icon close-modal"> ' +
+                        '<i class="material-icons md-24">clear</i>' +
+                    '</div>' +
+                '</div>';
 
             if(typeof callback == 'function') {
                 callback($(html));

@@ -9,6 +9,7 @@ export default Marionette.Object.extend({
     initialize: function(App, data) {
         this.app = App;
         this.data = data;
+        console.log(this.data);
     },
 
     respond: function() {
