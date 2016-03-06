@@ -27,62 +27,62 @@ export default Marionette.ItemView.extend({
     },
 
     bindings: {
-        '[name=username]': {
+        '#username': {
             observe: 'username',
             setOptions: {
                 validate: true
             }
         },
-        '[name=first_name]': {
-            observe: 'first_name',
+        '#first_name': {
+            observe: 'name.first',
             setOptions: {
                 validate: true
             }
         },
-        '[name=last_name]': {
-            observe: 'last_name',
+        '#last_name': {
+            observe: 'name.last',
             setOptions: {
                 validate: true
             }
         },
-        '[name=phone]': {
+        '#phone': {
             observe: 'phone',
             setOptions: {
                 validate: true
             }
         },
-        '[name=cell]': {
+        '#mobile': {
             observe: 'cell',
             setOptions: {
                 validate: true
             }
         },
-        '[name=email]': {
+        '#email': {
             observe: 'email',
             setOptions: {
                 validate: true
             }
         },
-        '[name=street]': {
-            observe: 'street',
+        '#street': {
+            observe: 'location.street',
             setOptions: {
                 validate: true
             }
         },
-        '[name=city]': {
-            observe: 'city',
+        '#city': {
+            observe: 'location.city',
             setOptions: {
                 validate: true
             }
         },
-        '[name=state]': {
-            observe: 'state',
+        '#state': {
+            observe: 'location.state',
             setOptions: {
                 validate: true
             }
         },
-        '[name=zip]': {
-            observe: 'zip',
+        '#zip': {
+            observe: 'location.zip',
             setOptions: {
                 validate: true
             }
@@ -92,12 +92,17 @@ export default Marionette.ItemView.extend({
     initialize: function() {
         BackboneValidation.bind(this, {
             valid: function (view, attr, selector) {
-                var el = view.$('[name=' + attr + ']');
+                var el = view.$('[name="' + attr + '"]'),
+                    container = el.closest('.mui-textfield');
                 el.removeClass('mui--is-invalid');
+                container.find('.error-reason').remove();
             },
             invalid: function (view, attr, error, selector) {
-                var el = view.$el.find('[name=' + attr + ']');
+                var el = view.$el.find('[name="' + attr + '"]'),
+                    container = el.closest('.mui-textfield');
                 el.addClass('mui--is-invalid');
+                container.find('.error-reason').remove();
+                container.append('<span class="error-reason" style="color: red">'+error+'</span>');
             }
         });
     },

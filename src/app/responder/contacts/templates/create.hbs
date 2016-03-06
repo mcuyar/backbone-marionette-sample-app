@@ -10,30 +10,29 @@
                 <div class="column mui-col-md-7 user-form">
                     <span class="mui--text-headline">Add A New Contact</span>
                     <form>
-
                         <div class="mui-textfield mui-textfield--float-label">
-                            <input name="username" id="username" type=text>
+                            <input name="username" id="username" type=text pattern="[A-Za-z0-9]{6,}">
                             <label for="username">Username</label>
                         </div>
 
                         <div class="mui-row">
                             <div class="column mui-col-md-6 mui-textfield mui-textfield--float-label">
-                                <input name="first_name" id="first_name" type="text">
+                                <input name="name.first" id="first_name" type="text">
                                 <label for="first_name">First Name</label>
                             </div>
                             <div class="column mui-col-md-6 mui-textfield mui-textfield--float-label">
-                                <input name="last_name" id="last_name" type="text">
+                                <input name="name.last" id="last_name" type="text">
                                 <label for="last_name">Last Name</label>
                             </div>
                         </div>
 
                         <div class="mui-row">
                             <div class="column mui-col-md-6 mui-textfield mui-textfield--float-label">
-                                <input name="phone" id="phone" type="tel">
+                                <input name="phone" id="phone" type="tel" pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}">
                                 <label for="phone">Phone</label>
                             </div>
                             <div class="column mui-col-md-6 mui-textfield mui-textfield--float-label">
-                                <input name="cell" id="mobile" type=tel>
+                                <input name="cell" id="mobile" type=tel pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}">
                                 <label for="mobile">Mobile</label>
                             </div>
                         </div>
@@ -44,21 +43,21 @@
                         </div>
 
                         <div class="mui-textfield mui-textfield--float-label">
-                            <input name="street" id="street" type="text">
+                            <input name="location.street" id="street" type="text">
                             <label for="street">Street</label>
                         </div>
 
                         <div class="mui-row">
                             <div class="column mui-col-md-4 mui-textfield mui-textfield--float-label">
-                                <input name="city" id="city" type="text">
+                                <input name="location.city" id="city" type="text">
                                 <label for="city">City</label>
                             </div>
                             <div class="column mui-col-md-4 mui-textfield mui-textfield--float-label">
-                                <input name="state" id="state" type="text">
+                                <input name="location.state" id="state" type="text">
                                 <label for="state">State</label>
                             </div>
                             <div class="column mui-col-md-4 mui-textfield mui-textfield--float-label">
-                                <input name="zip" id="zip" type="number">
+                                <input name="location.zip" id="zip" type="number">
                                 <label for="zip">Zip</label>
                             </div>
                         </div>
