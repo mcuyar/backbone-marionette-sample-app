@@ -14,12 +14,12 @@ export default Marionette.Object.extend({
 
     store: function(data) {
         if(this.cache.can()) {
-            this.cache.set('contactsDB', data);
+            this.cache.set('contactsDB', JSON.stringify(data));
         }
     },
 
     all: function() {
-
+        //this.cache.remove('contactsDB');
         if(this.cache.can()) {
             if(this.cache.has('contactsDB')) {
                 return JSON.parse(this.cache.get('contactsDB'));

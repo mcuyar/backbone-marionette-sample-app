@@ -38,16 +38,21 @@ export default Marionette.Behavior.extend({
             responder = action.respond.apply(action, _.values(data));
 
         $.when(responder).then(function(response) {
-            var responseHtml = response.render().$el.html(),
+            var responseObj = response.render().$el,
                 html = '' +
-                '<div id="modal" class="mui--overflow-hidden mui-container">' + responseHtml +
+                '<div id="modal" class="mui--overflow-hidden mui-container">' +
                     '<div class="close-icon close-modal">' +
                         '<i class="material-icons md-24">clear</i>' +
                     '</div>' +
+                    '<div id="modal-content"></div>' +
                 '</div>';
 
+            html = $(html);
+
+            html.find('#modal-content').append(responseObj);
+
             if(typeof callback == 'function') {
-                callback($(html));
+                callback(html);
             }
         });
     }

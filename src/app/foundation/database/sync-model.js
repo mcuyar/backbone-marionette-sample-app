@@ -2,6 +2,8 @@ import $ from 'jquery';
 import Backbone from 'backbone';
 import Marionette from 'backbone.marionette';
 
+import {guid} from './helper';
+
 export default Marionette.Object.extend({
 
     initialize: function(model, options) {
@@ -18,15 +20,25 @@ export default Marionette.Object.extend({
     },
 
     create: function() {
+        var model = this.model;
 
+        try {
+            model.set('id', guid());
+            this.db.add(model.toJSON());
+            this.success(this.model);
+        }
+        catch(err) {
+            this.error("Unable to save");
+        }
     },
 
     update: function() {
-
+        var atts = this.model.toJSON();
+        this.db.replace(atts.id, atts);
     },
 
     delete: function() {
-
+        this.db.remove(this.model.get('id'));
     },
 
     callback: function (callback, data) {

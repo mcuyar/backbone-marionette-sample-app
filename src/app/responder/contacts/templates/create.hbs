@@ -1,0 +1,73 @@
+<div id="user" class="mui-container user-create">
+
+    <div id="title-bar" class="mui--text-left text-capitalize">
+        <div class="mui-panel data-panel">
+            <div class="mui-row">
+                <div class="column mui-col-md-5 user-image">
+                    <img class="" src="/static/images/user-default.jpg"/>
+                </div>
+
+                <div class="column mui-col-md-7 user-form">
+                    <span class="mui--text-headline">Add A New Contact</span>
+                    <form>
+                        <div class="mui-textfield mui-textfield--float-label">
+                            <input name="username" id="username" type=text pattern="[A-Za-z0-9]{6,}">
+                            <label for="username">Username</label>
+                        </div>
+
+                        <div class="mui-row">
+                            <div class="column mui-col-md-6 mui-textfield mui-textfield--float-label">
+                                <input name="name.first" id="first_name" type="text">
+                                <label for="first_name">First Name</label>
+                            </div>
+                            <div class="column mui-col-md-6 mui-textfield mui-textfield--float-label">
+                                <input name="name.last" id="last_name" type="text">
+                                <label for="last_name">Last Name</label>
+                            </div>
+                        </div>
+
+                        <div class="mui-row">
+                            <div class="column mui-col-md-6 mui-textfield mui-textfield--float-label">
+                                <input name="phone" id="phone" type="tel" pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}">
+                                <label for="phone">Phone</label>
+                            </div>
+                            <div class="column mui-col-md-6 mui-textfield mui-textfield--float-label">
+                                <input name="cell" id="mobile" type=tel pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}">
+                                <label for="mobile">Mobile</label>
+                            </div>
+                        </div>
+
+                        <div class="mui-textfield mui-textfield--float-label">
+                            <input type="text" id="email" name="email">
+                            <label for="email" >Email</label>
+                        </div>
+
+                        <div class="mui-textfield mui-textfield--float-label">
+                            <input name="location.street" id="street" type="text">
+                            <label for="street">Street</label>
+                        </div>
+
+                        <div class="mui-row">
+                            <div class="column mui-col-md-4 mui-textfield mui-textfield--float-label">
+                                <input name="location.city" id="city" type="text">
+                                <label for="city">City</label>
+                            </div>
+                            <div class="column mui-col-md-4 mui-textfield mui-textfield--float-label">
+                                <input name="location.state" id="state" type="text">
+                                <label for="state">State</label>
+                            </div>
+                            <div class="column mui-col-md-4 mui-textfield mui-textfield--float-label">
+                                <input name="location.zip" id="zip" type="number">
+                                <label for="zip">Zip</label>
+                            </div>
+                        </div>
+
+                        <button type="button" class="mui-btn mui-btn--primary submit">Submit</button>
+                        <button type="button" class="mui-btn cancel close-modal">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
