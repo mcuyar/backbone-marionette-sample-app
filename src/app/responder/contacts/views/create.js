@@ -4,6 +4,7 @@ import Backbone from 'backbone';
 import BackboneValidation from 'backbone-validation';
 import BackboneStickit from 'backbone.stickit';
 import Marionette from 'backbone.marionette';
+import Toast from 'toastr';
 
 import Contact from '../../../domain/contacts/model.js';
 import template from '../templates/create.hbs';
@@ -105,6 +106,11 @@ export default Marionette.ItemView.extend({
                 container.append('<span class="error-reason" style="color: red">'+error+'</span>');
             }
         });
+
+        Toast.options = {
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": true
+        }
     },
 
     onRender: function() {
@@ -123,14 +129,31 @@ export default Marionette.ItemView.extend({
 
     createContact: function (e) {
         e.preventDefault();
-
+        var self = this;
         if(this.model.isValid(true)) {
-            this.model.save();
+            this.model.save(null, {
+                success : function(model, response) {
+                    self.onSaveSuccess.call(self, model);
+                },
+                error: function(model, response) {
+                    self.onSaveError.call(self, model)
+                }
+            });
         }
     },
 
     cancelContact: function (e) {
         e.preventDefault();
         this.destroy();
+    },
+
+    onSaveSuccess: function(model) {
+        this.$el.find('.close-modal').trigger('click');
+        Toast.success(model.attributes.name.first + ' ' + model.attributes.name.last + ' successfully added!');
+        this.trigger('renderParent');
+    },
+
+    onSaveError: function(model) {
+        Toast.error('Something went wrong!');
     }
 });

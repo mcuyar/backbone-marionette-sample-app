@@ -20,8 +20,16 @@ export default Marionette.Object.extend({
     },
 
     create: function() {
-        this.model.set('id', guid());
-        this.db.add(this.model.toJSON());
+        var model = this.model;
+
+        try {
+            model.set('id', guid());
+            this.db.add(model.toJSON());
+            this.success(this.model);
+        }
+        catch(err) {
+            this.error("Unable to save");
+        }
     },
 
     update: function() {
