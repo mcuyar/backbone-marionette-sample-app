@@ -90,8 +90,6 @@ export default Marionette.ItemView.extend({
 
     initialize: function() {
 
-        this.model = new Contact;
-
         BackboneValidation.bind(this, {
             valid: function (view, attr, selector) {
                 var el = view.$('[name="' + attr + '"]'),
@@ -102,9 +100,11 @@ export default Marionette.ItemView.extend({
             invalid: function (view, attr, error, selector) {
                 var el = view.$el.find('[name="' + attr + '"]'),
                     container = el.closest('.mui-textfield');
+
+                console.log(attr);
                 el.addClass('mui--is-invalid');
                 container.find('.error-reason').remove();
-                container.append('<span class="error-reason" style="color: red">'+error+'</span>');
+                container.append('<span class="error-reason" style="color:red">'+error+'</span>');
             }
         });
 
@@ -143,17 +143,15 @@ export default Marionette.ItemView.extend({
         }
     },
 
-    onDestroy: function(){
-    },
-
     cancelContact: function (e) {
         e.preventDefault();
         this.destroy();
     },
 
     onSaveSuccess: function(model) {
-        //this.$el.find('.close-modal').trigger('click');
-        Toast.success(model.attributes.first_name + ' ' + model.attributes.last_name + ' successfully added!');
+        this.$el.find('.close-modal').trigger('click');
+        Toast.success(model.get('first_name')  + ' ' + model.get('last_name') + ' successfully updated!');
+        this.trigger('renderParent');
     },
 
     onSaveError: function(model) {

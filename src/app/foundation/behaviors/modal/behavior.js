@@ -35,8 +35,15 @@ export default Marionette.Behavior.extend({
 
     getHtml: function(data, callback) {
 
-        var action = new this.options.action,
-            responder = action.respond.apply(action, _.values(data));
+        var action = this.options.action;
+
+        if(typeof data.action != 'undefined') {
+            action = action[data.action];
+        }
+
+        action = new action;
+
+        var responder = action.respond.apply(action, _.values(data));
 
         $.when(responder).then(function(response) {
             var responseObj = response.render().$el,

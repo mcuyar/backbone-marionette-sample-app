@@ -33,12 +33,24 @@ export default Marionette.Object.extend({
     },
 
     update: function() {
-        var atts = this.model.toJSON();
-        this.db.replace(atts.id, atts);
+        try {
+            var atts = this.model.toJSON();
+            this.db.replace(atts.id, atts);
+            this.success(this.model);
+        }
+        catch(err) {
+            this.error("Unable to update");
+        }
     },
 
     delete: function() {
-        this.db.remove(this.model.get('id'));
+        try {
+            this.db.remove(this.model.get('id'));
+            this.success(this.model);
+        }
+        catch(err) {
+            this.error("Unable to remove");
+        }
     },
 
     callback: function (callback, data) {

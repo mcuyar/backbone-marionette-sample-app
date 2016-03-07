@@ -5,12 +5,10 @@
                 <img class="img-circle" src="{{ picture.thumbnail }}"/>
                 <div class="user-actions">
                     <div class="icon-inline view-icon">
-                        <i class="material-icons md-18 modal-open" data-id="{{ id }}">visibility</i>
+                        <i class="material-icons md-18 modal-open" data-id="{{ id }}" data-action="show">visibility</i>
                     </div>
-                    <div class="icon-inline edit-icon">
-                        <a href="#" onclick="">
-                            <i class="material-icons md-18">create</i>
-                        </a>
+                    <div class="icon-inline view-icon">
+                        <i class="material-icons md-18 modal-open" data-id="{{ id }}" data-action="edit">create</i>
                     </div>
                 </div>
             </div>
@@ -22,10 +20,10 @@
             </div>
         </div>
 
-        <div class="delete-icon">
-            <a href="#">
-                <i class="material-icons md-18">clear</i>
-            </a>
-        </div>
+        <!--<div class="delete-icon">-->
+            <!--<a href="#">-->
+                <!--<i class="material-icons md-18">clear</i>-->
+            <!--</a>-->
+        <!--</div>-->
     </div>
 </div>
