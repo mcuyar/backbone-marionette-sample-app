@@ -20,11 +20,12 @@ export default Marionette.Behavior.extend({
         var self = this,
             target = $(e.target);
 
-        this.getHtml(target.data(), function(html) {
+        this.getHtml(target.data(), function(html, view) {
 
             html.addClass(self.options.class);
 
             html.find('.close-modal').on('click', function(e) {
+                view.destroy();
                 window.mui.overlay('off', html[0]);
             });
 
@@ -52,7 +53,7 @@ export default Marionette.Behavior.extend({
             html.find('#modal-content').append(responseObj);
 
             if(typeof callback == 'function') {
-                callback(html);
+                callback(html, response);
             }
         });
     }

@@ -7,11 +7,11 @@ export default {
         minLength: 6,
         msg: 'Please enter a username with at least six characters'
     },{
-        //pattern: '^[A-Za-z0-9]$',
-        //msg:  'Letters and numbers only'
+        pattern: /^[A-Za-z0-9]/,
+        msg:  'Letters and numbers only'
     }],
 
-    'name.first': [{
+    'first_name': [{
         required: true,
         msg: 'Please enter a first name'
     },{
@@ -19,7 +19,7 @@ export default {
         msg: 'Must be at least three characters'
     }],
 
-    'name.last': [{
+    'last_name': [{
         required: true,
         msg: 'Please enter a last name'
     },{
@@ -28,13 +28,15 @@ export default {
     }],
 
     phone: {
-        //pattern: '/^(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}/',
-        //msg: 'Please enter a valid phone number'
+        required: false,
+        pattern: /^(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}/,
+        msg: 'Please enter a valid phone number'
     },
 
     cell: {
-        //pattern: '/^(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}/',
-        //msg: 'Please enter a valid phone number'
+        required: false,
+        pattern: /^(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}/,
+        msg: 'Please enter a valid phone number'
     },
 
     email: [{
@@ -45,22 +47,22 @@ export default {
         msg: 'Please enter a valid email'
     }],
 
-    'location.street': {
+    'street': {
         required: true,
         msg: 'Please enter a street address'
     },
 
-    'location.city': {
+    'city': {
         required: true,
         msg: 'Please enter a city'
     },
 
-    'location.state': {
+    'state': {
         required: true,
         msg: 'Please enter a state'
     },
 
-    'location.zip': [{
+    'zip': [{
         required: true,
         msg: 'Please enter a zip code'
     },{

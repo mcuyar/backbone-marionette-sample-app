@@ -13,8 +13,6 @@ export default Marionette.ItemView.extend({
 
     template: template,
 
-    model: new Contact,
-
     ui: {
         submit: '.submit',
         cancel: '.cancel',
@@ -35,13 +33,13 @@ export default Marionette.ItemView.extend({
             }
         },
         '#first_name': {
-            observe: 'name.first',
+            observe: 'first_name',
             setOptions: {
                 validate: true
             }
         },
         '#last_name': {
-            observe: 'name.last',
+            observe: 'last_name',
             setOptions: {
                 validate: true
             }
@@ -65,25 +63,25 @@ export default Marionette.ItemView.extend({
             }
         },
         '#street': {
-            observe: 'location.street',
+            observe: 'street',
             setOptions: {
                 validate: true
             }
         },
         '#city': {
-            observe: 'location.city',
+            observe: 'city',
             setOptions: {
                 validate: true
             }
         },
         '#state': {
-            observe: 'location.state',
+            observe: 'state',
             setOptions: {
                 validate: true
             }
         },
         '#zip': {
-            observe: 'location.zip',
+            observe: 'zip',
             setOptions: {
                 validate: true
             }
@@ -91,6 +89,7 @@ export default Marionette.ItemView.extend({
     },
 
     initialize: function() {
+        this.model = new Contact;
         BackboneValidation.bind(this, {
             valid: function (view, attr, selector) {
                 var el = view.$('[name="' + attr + '"]'),
@@ -142,15 +141,17 @@ export default Marionette.ItemView.extend({
         }
     },
 
+    onDestroy: function(){
+    },
+
     cancelContact: function (e) {
         e.preventDefault();
         this.destroy();
     },
 
     onSaveSuccess: function(model) {
-        this.$el.find('.close-modal').trigger('click');
-        Toast.success(model.attributes.name.first + ' ' + model.attributes.name.last + ' successfully added!');
-        this.trigger('renderParent');
+        //this.$el.find('.close-modal').trigger('click');
+        Toast.success(model.attributes.first_name + ' ' + model.attributes.last_name + ' successfully added!');
     },
 
     onSaveError: function(model) {

@@ -29,6 +29,7 @@ export default Marionette.Object.extend({
 
     //http://stackoverflow.com/questions/8358084/regular-expression-to-reformat-a-phone-number-in-javascript
     formatPhone: function(phone) {
+        phone = phone.replace(/[^\d]/g, "");
         return phone.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3");
     }
 });
