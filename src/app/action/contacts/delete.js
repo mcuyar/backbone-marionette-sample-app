@@ -7,8 +7,9 @@ import Contacts from '../../domain/contacts/repository';
 
 export default Marionette.Object.extend({
 
-    initialize: function(App) {
+    initialize: function(App, model) {
         this.app = App;
+        this.model = model;
         this.contacts = new Contacts;
     },
 
@@ -18,6 +19,11 @@ export default Marionette.Object.extend({
     },
 
     data: function(id) {
+
+        if(typeof this.model != 'undefined' && this.model.id == id) {
+            return this.model;
+        }
+
         return this.contacts.findById(id);
     }
 

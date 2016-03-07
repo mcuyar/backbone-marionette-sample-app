@@ -39,7 +39,6 @@ export default Marionette.ItemView.extend({
 
         this.model.destroy({
             success : function(model, response) {
-                console.log(model);
                 self.onDeleteSuccess.call(self, model);
             },
             error: function(model, response) {

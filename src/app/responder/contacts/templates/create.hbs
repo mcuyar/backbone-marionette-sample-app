@@ -8,7 +8,7 @@
                 </div>
 
                 <div class="column mui-col-md-7 user-form">
-                    <span class="mui--text-headline">Add A New Contact</span>
+                    <span class="mui--text-headline headline">Add A New Contact</span>
                     <form>
                         <div class="mui-textfield mui-textfield--float-label">
                             <input name="username" id="username" type=text>
@@ -61,9 +61,12 @@
                                 <label for="zip">Zip</label>
                             </div>
                         </div>
+                        <div class="view-actions ">
+                            <button type="button" class="mui-btn mui-btn--primary submit">Submit</button>
+                            <button type="button" class="mui-btn cancel close-modal">Cancel</button>
+                            <button type="button" class="mui-btn mui-btn--danger modal-open mui--hide delete-btn mui--pull-right" data-id="{{ id }}">Delete</button>
+                        </div>
 
-                        <button type="button" class="mui-btn mui-btn--primary submit">Submit</button>
-                        <button type="button" class="mui-btn cancel close-modal">Cancel</button>
                     </form>
                 </div>
             </div>

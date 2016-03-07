@@ -8,12 +8,15 @@ import Toast from 'toastr';
 
 import Contact from '../../../domain/contacts/model.js';
 import template from '../templates/create.hbs';
+import Modal from '../../../foundation/behaviors/modal/behavior';
+import DeleteUserModal from '../../../action/contacts/delete';
 
 export default Marionette.ItemView.extend({
 
     template: template,
 
     ui: {
+        modalOpen: ".modal-open",
         submit: '.submit',
         cancel: '.cancel',
         close: '.close-modal'
@@ -23,6 +26,13 @@ export default Marionette.ItemView.extend({
         'click @ui.submit': "createContact",
         'click @ui.cancel': "cancelContact",
         'click @ui.close': "cancelContact"
+    },
+
+    behaviors: {
+        Modal: {
+            behaviorClass: Modal,
+            action: DeleteUserModal
+        }
     },
 
     bindings: {
@@ -115,6 +125,7 @@ export default Marionette.ItemView.extend({
 
     onRender: function() {
         this.stickit();
+        this.$el.find('.delete-btn').removeClass('mui--hide');
     },
 
     onBeforeShow: function() {
