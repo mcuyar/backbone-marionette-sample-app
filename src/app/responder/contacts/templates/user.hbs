@@ -9,7 +9,7 @@
                     </td>
                     <td>
                         <div>
-                            <span class="mui--text-display1 ">{{ name.first }} {{name.last}}</span>
+                            <span class="mui--text-display1 ">{{ first_name }} {{ last_name }}</span>
                         </div>
                         <ul class="detail-list mui-list--unstyled mui--text-left mui--text-dark-secondary">
                             <li>
@@ -58,8 +58,8 @@
                                         <strong>Location:</strong>
                                     </div>
                                     <div class="column mui-col-md-9">
-                                        {{location.street}}<br>
-                                        {{location.city}} {{location.state}}, {{location.zip}}
+                                        {{street}}<br>
+                                        {{city}} {{state}}, {{zip}}
                                     </div>
                                 </div>
                             </li>
@@ -68,14 +68,14 @@
                     <td align="right">
                         <ul class="mui-list--inline mui--text-body2">
                             <li>
-                                <a href="#" class="edit-btn mui-btn mui-btn--large mui-btn--primary mui-btn--fab mui--clearfix" style="text-align: left;">
-                                    Edit <i class="material-icons md-21">create</i>
-                                </a>
+                                <div class="edit-btn mui-btn mui-btn--large mui-btn--primary mui-btn--fab modal-open" data-id="{{ id }}" data-action="edit">
+                                    Edit
+                                </div>
                             </li>
                             <li>
-                                <a href="#" class="edit-btn mui-btn mui-btn--large mui-btn--danger mui-btn--fab mui--clearfix" style="text-align: left;">
-                                    Delete <i class="material-icons md-21">clear</i>
-                                </a>
+                                <div class="edit-btn mui-btn mui-btn--large mui-btn--danger mui-btn--fab modal-open" data-id="{{ id }}" data-action="delete">
+                                    Delete
+                                </div>
                             </li>
                         </ul>
 

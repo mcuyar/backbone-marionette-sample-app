@@ -20,12 +20,14 @@ export default Marionette.Behavior.extend({
         var self = this,
             target = $(e.target);
 
-        this.getHtml(target.data(), function(html) {
+        this.getHtml(target.data(), function(html, view) {
 
             html.addClass(self.options.class);
 
             html.find('.close-modal').on('click', function(e) {
+                view.destroy();
                 window.mui.overlay('off', html[0]);
+                $('body').removeClass('mui-body--scroll-lock');
             });
 
             window.mui.overlay('on', html[0]);
@@ -34,20 +36,36 @@ export default Marionette.Behavior.extend({
 
     getHtml: function(data, callback) {
 
-        var action = new this.options.action,
-            responder = action.respond.apply(action, _.values(data));
+        var self = this,
+            action = this.options.action;
+
+        if(typeof data.action != 'undefined') {
+            action = action[data.action];
+        }
+
+        action = new action(window.App, this.view.model);
+
+        var responder = action.respond.apply(action, _.values(data));
 
         $.when(responder).then(function(response) {
-            var responseHtml = response.render().$el.html(),
+
+            response.parent = self.view;
+
+            var responseObj = response.render().$el,
                 html = '' +
-                '<div id="modal" class="mui--overflow-hidden mui-container">' + responseHtml +
+                '<div id="modal" class="mui--overflow-hidden mui-container">' +
                     '<div class="close-icon close-modal">' +
                         '<i class="material-icons md-24">clear</i>' +
                     '</div>' +
+                    '<div id="modal-content"></div>' +
                 '</div>';
 
+            html = $(html);
+
+            html.find('#modal-content').append(responseObj);
+
             if(typeof callback == 'function') {
-                callback($(html));
+                callback(html, response);
             }
         });
     }

@@ -2,7 +2,7 @@ import $ from 'jquery';
 import Backbone from 'backbone';
 import Marionette from 'backbone.marionette';
 
-import UserView from './views/user';
+import CreateView from './views/create';
 
 export default Marionette.Object.extend({
 
@@ -12,10 +12,6 @@ export default Marionette.Object.extend({
     },
 
     respond: function() {
-        return $.when(this.data).then(function(data) {
-            return new UserView({
-                model: data
-            });
-        });
+        return new CreateView();
     }
 });

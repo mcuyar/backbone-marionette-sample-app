@@ -4,8 +4,10 @@ import Marionette from 'backbone.marionette';
 
 export default Marionette.Object.extend({
 
-    initialize: function(data) {
+    initialize: function(store, data, table) {
+        this.store = store;
         this.data = data;
+        this.table = table;
     },
 
     all: function() {
@@ -15,5 +17,23 @@ export default Marionette.Object.extend({
     where: function(search) {
         var key = _.findKey(this.data, search || {});
         return this.data[key];
+    },
+
+    add: function(data) {
+        this.data.push(data);
+        this.store.set(this.table, this.data);
+    },
+
+    replace: function(id, data) {
+        var key = _.findKey(this.data, {id: id});
+        this.data[key] = data;
+        this.store.set(this.table, this.data);
+    },
+
+    remove: function(id) {
+        _.remove(this.data, function(item) {
+            return item.id == id;
+        });
+        this.store.set(this.table, this.data);
     }
 });

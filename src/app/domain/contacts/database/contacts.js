@@ -14,12 +14,12 @@ export default Marionette.Object.extend({
 
     store: function(data) {
         if(this.cache.can()) {
-            this.cache.set('contactsDB', data);
+            this.cache.set('contactsDB', JSON.stringify(data));
         }
     },
 
     all: function() {
-
+        //this.cache.remove('contactsDB');
         if(this.cache.can()) {
             if(this.cache.has('contactsDB')) {
                 return JSON.parse(this.cache.get('contactsDB'));
@@ -50,14 +50,30 @@ export default Marionette.Object.extend({
     },
 
     parse: function(contacts) {
-        return _.map(contacts, function(result) {
 
-            var contact = result.user;
+        _.forEach(contacts, function(contact, key) {
+
+            contact = contact.user;
+
             contact.id = guid();
 
-            return contact;
+            // Set name
+            contact.title = contact.name.title;
+            contact.first_name = contact.name.first;
+            contact.last_name = contact.name.last;
+            delete contact.name;
 
+            // location
+            contact.street = contact.location.street;
+            contact.city = contact.location.city;
+            contact.state = contact.location.state;
+            contact.zip = contact.location.zip;
+            delete contact.location;
+
+            contacts[key] = contact;
         });
+
+        return contacts;
     }
 
 });

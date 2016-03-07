@@ -1,0 +1,76 @@
+<div id="user" class="mui-container user-create">
+
+    <div id="title-bar" class="mui--text-left text-capitalize">
+        <div class="mui-panel data-panel">
+            <div class="mui-row">
+                <div class="column mui-col-md-5 user-image">
+                    <img class="" src="{{ picture.large }}"/>
+                </div>
+
+                <div class="column mui-col-md-7 user-form">
+                    <span class="mui--text-headline headline">Add A New Contact</span>
+                    <form>
+                        <div class="mui-textfield mui-textfield--float-label">
+                            <input name="username" id="username" type=text>
+                            <label for="username">Username</label>
+                        </div>
+
+                        <div class="mui-row">
+                            <div class="column mui-col-md-6 mui-textfield mui-textfield--float-label">
+                                <input name="first_name" id="first_name" type="text">
+                                <label for="first_name">First Name</label>
+                            </div>
+                            <div class="column mui-col-md-6 mui-textfield mui-textfield--float-label">
+                                <input name="last_name" id="last_name" type="text">
+                                <label for="last_name">Last Name</label>
+                            </div>
+                        </div>
+
+                        <div class="mui-row">
+                            <div class="column mui-col-md-6 mui-textfield mui-textfield--float-label">
+                                <input name="phone" id="phone" type="tel">
+                                <label for="phone">Phone</label>
+                            </div>
+                            <div class="column mui-col-md-6 mui-textfield mui-textfield--float-label">
+                                <input name="cell" id="mobile" type=tel>
+                                <label for="mobile">Mobile</label>
+                            </div>
+                        </div>
+
+                        <div class="mui-textfield mui-textfield--float-label">
+                            <input type="text" id="email" name="email">
+                            <label for="email" >Email</label>
+                        </div>
+
+                        <div class="mui-textfield mui-textfield--float-label">
+                            <input name="street" id="street" type="text">
+                            <label for="street">Street</label>
+                        </div>
+
+                        <div class="mui-row">
+                            <div class="column mui-col-md-4 mui-textfield mui-textfield--float-label">
+                                <input name="city" id="city" type="text">
+                                <label for="city">City</label>
+                            </div>
+                            <div class="column mui-col-md-4 mui-textfield mui-textfield--float-label">
+                                <input name="state" id="state" type="text">
+                                <label for="state">State</label>
+                            </div>
+                            <div class="column mui-col-md-4 mui-textfield mui-textfield--float-label">
+                                <input name="zip" id="zip" type="number" >
+                                <label for="zip">Zip</label>
+                            </div>
+                        </div>
+                        <div class="view-actions ">
+                            <button type="button" class="mui-btn mui-btn--primary submit">Submit</button>
+                            <button type="button" class="mui-btn cancel close-modal">Cancel</button>
+                            <button type="button" class="mui-btn mui-btn--danger modal-open mui--hide delete-btn mui--pull-right" data-id="{{ id }}">Delete</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

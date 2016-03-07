@@ -15,12 +15,11 @@ export default Marionette.Object.extend({
 
     get: function(table) {
         var data = this.data[table].all();
-        return new Query(data || {});
+        return new Query(this, data || {}, table);
     },
 
     set: function(table, data) {
         this.data[table].store(data);
-        this.data[table] = data;
     }
 
 });
