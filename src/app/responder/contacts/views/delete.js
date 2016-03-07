@@ -55,7 +55,6 @@ export default Marionette.ItemView.extend({
     onDeleteSuccess: function(model) {
         this.$el.find('.close-modal').trigger('click');
         Toast.success(model.get('first_name')  + ' ' + model.get('last_name') + ' successfully deleted!');
-        this.trigger('renderParent');
     },
 
     onDeleteError: function(model) {

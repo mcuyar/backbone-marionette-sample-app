@@ -133,10 +133,10 @@ export default Marionette.ItemView.extend({
         var self = this;
         if(this.model.isValid(true)) {
             this.model.save(null, {
-                success : function(model, response) {
-                    self.onSaveSuccess.call(self, model);
+                success : function() {
+                    self.onSaveSuccess.call(self);
                 },
-                error: function(model, response) {
+                error: function(model) {
                     self.onSaveError.call(self, model)
                 }
             });
@@ -148,12 +148,14 @@ export default Marionette.ItemView.extend({
         this.destroy();
     },
 
-    onSaveSuccess: function(model) {
+    onSaveSuccess: function() {
+        var model = this.model;
         this.$el.find('.close-modal').trigger('click');
-        Toast.success(model.attributes.first_name + ' ' + model.attributes.last_name + ' successfully added!');
+        this.parent.collection.add(model);
+        Toast.success(model.get('first_name') + ' ' + model.get('last_name') + ' successfully added!');
     },
 
-    onSaveError: function(model) {
+    onSaveError: function() {
         Toast.error('Something went wrong!');
     }
 });

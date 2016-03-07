@@ -15,6 +15,10 @@ export default Marionette.ItemView.extend({
         "modalClose": ".modal-close"
     },
 
+    modelEvents: {
+        'sync': 'render'
+    },
+
     behaviors: {
         Modal: {
             behaviorClass: Modal,
@@ -24,5 +28,4 @@ export default Marionette.ItemView.extend({
             }
         }
     }
-
 });

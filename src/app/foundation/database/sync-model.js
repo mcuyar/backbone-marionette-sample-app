@@ -25,7 +25,7 @@ export default Marionette.Object.extend({
         try {
             model.set('id', guid());
             this.db.add(model.toJSON());
-            this.success(this.model);
+            this.success();
         }
         catch(err) {
             this.error("Unable to save");
@@ -36,7 +36,7 @@ export default Marionette.Object.extend({
         try {
             var atts = this.model.toJSON();
             this.db.replace(atts.id, atts);
-            this.success(this.model);
+            this.success();
         }
         catch(err) {
             this.error("Unable to update");
@@ -46,7 +46,7 @@ export default Marionette.Object.extend({
     delete: function() {
         try {
             this.db.remove(this.model.get('id'));
-            this.success(this.model);
+            this.success();
         }
         catch(err) {
             this.error("Unable to remove");

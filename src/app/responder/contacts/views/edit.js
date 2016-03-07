@@ -101,7 +101,6 @@ export default Marionette.ItemView.extend({
                 var el = view.$el.find('[name="' + attr + '"]'),
                     container = el.closest('.mui-textfield');
 
-                console.log(attr);
                 el.addClass('mui--is-invalid');
                 container.find('.error-reason').remove();
                 container.append('<span class="error-reason" style="color:red">'+error+'</span>');
@@ -151,7 +150,6 @@ export default Marionette.ItemView.extend({
     onSaveSuccess: function(model) {
         this.$el.find('.close-modal').trigger('click');
         Toast.success(model.get('first_name')  + ' ' + model.get('last_name') + ' successfully updated!');
-        this.trigger('renderParent');
     },
 
     onSaveError: function(model) {

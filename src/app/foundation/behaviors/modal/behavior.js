@@ -36,17 +36,21 @@ export default Marionette.Behavior.extend({
 
     getHtml: function(data, callback) {
 
-        var action = this.options.action;
+        var self = this,
+            action = this.options.action;
 
         if(typeof data.action != 'undefined') {
             action = action[data.action];
         }
 
-        action = new action;
+        action = new action(window.App, this.view.model);
 
         var responder = action.respond.apply(action, _.values(data));
 
         $.when(responder).then(function(response) {
+
+            response.parent = self.view;
+
             var responseObj = response.render().$el,
                 html = '' +
                 '<div id="modal" class="mui--overflow-hidden mui-container">' +
