@@ -143,9 +143,6 @@ export default Marionette.ItemView.extend({
         }
     },
 
-    onDestroy: function(){
-    },
-
     cancelContact: function (e) {
         e.preventDefault();
         this.destroy();
