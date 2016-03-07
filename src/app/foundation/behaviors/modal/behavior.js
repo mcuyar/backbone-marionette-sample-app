@@ -27,6 +27,7 @@ export default Marionette.Behavior.extend({
             html.find('.close-modal').on('click', function(e) {
                 view.destroy();
                 window.mui.overlay('off', html[0]);
+                $('body').removeClass('mui-body--scroll-lock');
             });
 
             window.mui.overlay('on', html[0]);

@@ -31,8 +31,9 @@ export default Marionette.Object.extend({
     },
 
     remove: function(id) {
-        var key = _.findKey(this.data, {id: id});
-        delete this.data[key];
+        _.remove(this.data, function(item) {
+            return item.id == id;
+        });
         this.store.set(this.table, this.data);
     }
 });

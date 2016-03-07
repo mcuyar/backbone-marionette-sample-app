@@ -152,7 +152,7 @@ export default Marionette.ItemView.extend({
     },
 
     onSaveSuccess: function(model) {
-        //this.$el.find('.close-modal').trigger('click');
+        this.$el.find('.close-modal').trigger('click');
         Toast.success(model.attributes.first_name + ' ' + model.attributes.last_name + ' successfully added!');
     },
 
