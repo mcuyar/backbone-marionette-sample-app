@@ -12,10 +12,10 @@ export default Marionette.Object.extend({
     },
 
     respond: function() {
-        return this.data.then(function(data) {
+        return $.when(this.data).then(function(data) {
             return new EditView({
                 model: data
             });
-        })
+        });
     }
 });

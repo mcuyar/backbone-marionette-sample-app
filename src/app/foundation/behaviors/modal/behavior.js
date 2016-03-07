@@ -42,7 +42,7 @@ export default Marionette.Behavior.extend({
             action = action[data.action];
         }
 
-        action = new action;
+        action = new action(window.App, this.view.model);
 
         var responder = action.respond.apply(action, _.values(data));
 
