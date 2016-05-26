@@ -245,6 +245,9 @@ footer {
 #user .user-delete .delete-actions {
   margin-top: 20px;
 }
+#user .user-img {
+  min-width: 500px;
+}
 .toast-title {
   font-weight: bold;
 }
