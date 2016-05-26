@@ -53,14 +53,13 @@ export default Marionette.Object.extend({
 
         _.forEach(contacts, function(contact, key) {
 
-            contact = contact.user;
-
             contact.id = guid();
 
             // Set name
             contact.title = contact.name.title;
             contact.first_name = contact.name.first;
             contact.last_name = contact.name.last;
+
             delete contact.name;
 
             // location
