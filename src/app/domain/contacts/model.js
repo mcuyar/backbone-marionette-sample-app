@@ -10,9 +10,9 @@ export default Backbone.Model.extend({
 
     defaults: {
         picture: {
-            "large": "/static/images/user-default.jpg",
-            "medium": "/static/images/user-default-medium.jpg",
-            "thumbnail": "/static/images/user-default-thumb.jpg"
+            "large": "https://raw.githubusercontent.com/mcuyar/backbone-marionette-sample-app/master/src/static/images/user-default.jpg",
+            "medium": "https://raw.githubusercontent.com/mcuyar/backbone-marionette-sample-app/master/src/static/images/user-default-medium.jpg",
+            "thumbnail": "https://raw.githubusercontent.com/mcuyar/backbone-marionette-sample-app/master/src/static/images/user-default-thumb.jpg"
         }
     },
 

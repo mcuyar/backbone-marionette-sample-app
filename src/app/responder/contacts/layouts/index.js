@@ -28,7 +28,6 @@ export default Marionette.LayoutView.extend({
             data = self.data;
 
         data.contacts.done(function(contacts) {
-            console.log(contacts);
             self.collection = contacts;
             self.showChildView('users', new UsersView({collection: contacts}));
         });
